@@ -3,7 +3,7 @@ name: Run and Lint Bash Scripts
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   run-and-lint:
