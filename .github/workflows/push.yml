@@ -1,0 +1,40 @@
+name: Run and Lint Bash Scripts
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Check for Bash scripts
+        id: check-scripts
+        run: |
+          if find . -name "*.sh" | grep -q .; then
+            echo "Bash scripts found."
+            echo "has_bash_scripts=true" >> $GITHUB_ENV
+          else
+            echo "No Bash scripts found."
+            echo "has_bash_scripts=false" >> $GITHUB_ENV
+          fi
+
+      - name: Lint Bash scripts
+        run: |
+          bash_scripts=$(find . -name "*.sh")
+          
+          if [ -z "$bash_scripts" ]; then
+            echo "No bash scripts found, skipping lint."
+          else
+            echo "Found bash scripts:"
+            echo "$bash_scripts"
+            shellcheck -x $bash_scripts
+          fi
