@@ -16,6 +16,7 @@ function services() {
       check_internet_connection || { echo "Exiting due to no internet."; exit 1; }
 
       tor_service_linux
+      proxychains_service_linux
   elif [[ "$OS" == "Darwin" ]]; then
       echo "$(set_color "green")✓$(set_color "*") Using MacOS: $OS"
 
@@ -23,6 +24,7 @@ function services() {
       check_internet_connection || { echo "Exiting due to no internet."; exit 1; }
 
       tor_service_macos
+      proxychains_service_macos
   else
       echo "Unsupported OS: $OS"
       return 1
