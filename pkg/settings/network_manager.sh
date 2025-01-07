@@ -16,7 +16,6 @@ function get_active_interface_linux() {
     fi
 }
 
-
 function get_active_interface_macos() {
     echo "$(set_color "purple")•$(set_color "*") Detecting active network interface with internet access..."
 
