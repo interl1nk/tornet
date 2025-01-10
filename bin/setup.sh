@@ -7,6 +7,7 @@ source ./lib/software/macos.sh
 source ./lib/services/macos.sh
 
 source ./pkg/settings/proxy_config.sh
+source ./pkg/settings/hotspot_macos.sh
 
 function setup() {
     echo "Hello, you are using TorNet!"
@@ -20,6 +21,7 @@ function setup() {
         software_macos
         services_macos
         change_proxy_config
+        hot_spot_macos
     else
         echo "Unsupported OS: $OS"
         return 1
