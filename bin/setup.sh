@@ -1,13 +1,29 @@
 #! /bin/bash
 
-source ./pkg/settings/software.sh
+source ./lib/software/linux.sh
+source ./lib/services/linux.sh
+
+source ./lib/software/macos.sh
+source ./lib/services/macos.sh
+
+source ./pkg/settings/proxy_config.sh
 
 function setup() {
     echo "Hello, you are using TorNet!"
 
-    services
+    OS=$(uname)
 
-
+    if [[ "$OS" == "Linux" ]]; then
+        software_linux
+        services_linux
+    elif [[ "$OS" == "Darwin" ]]; then
+        software_macos
+        services_macos
+        change_proxy_config
+    else
+        echo "Unsupported OS: $OS"
+        return 1
+    fi
 }
 
 setup
