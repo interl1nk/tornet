@@ -6,7 +6,7 @@ function proxychains_service_macos() {
     echo "$(set_color "purple")•$(set_color "*") Checking proxychains-ng..."
 
     if ! brew list --formula | grep -q "^proxychains-ng$"; then
-        echo "$(set_color "yellow")Warning:$(set_color "*") proxychains-ng is not installed via Homebrew."
+        echo "$(set_color "yellow")WARNING:$(set_color "*") proxychains-ng is not installed via Homebrew."
         echo "$(set_color "purple")•$(set_color "*") Installing proxychains-ng via Homebrew..."
 
         if brew install proxychains-ng &> /dev/null; then
