@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source ./pkg/assets/colors.sh
+source ./scripts/pkg/assets/colors.sh
 
 function check_internet_connection() {
     echo "$(set_color "purple")[•]$(set_color "*") Checking internet connection..."
