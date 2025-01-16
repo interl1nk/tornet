@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source ./pkg/assets/colors.sh
+source ./scripts/pkg/assets/colors.sh
 
 function get_active_interface_linux() {
     echo "$(set_color "purple")[•]$(set_color "*") Detecting active network interface with internet access..."

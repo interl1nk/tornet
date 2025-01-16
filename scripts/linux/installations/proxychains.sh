@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source ./pkg/assets/colors.sh
+source ./scripts/pkg/assets/colors.sh
 
 function proxychains_service_linux() {
     echo "$(set_color "purple")[•]$(set_color "*") Checking proxychains-ng..."

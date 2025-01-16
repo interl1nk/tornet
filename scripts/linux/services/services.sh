@@ -1,7 +1,7 @@
 #! /bin/bash
 
-source ./pkg/installations/linux/tor.sh
-source ./pkg/installations/linux/proxychains.sh
+source ./scripts/linux/installations/tor.sh
+source ./scripts/linux/installations/proxychains.sh
 
 function services_linux() {
     tor_service_linux

@@ -1,8 +1,9 @@
 #! /bin/bash
 
-source ./pkg/assets/colors.sh
-source ./pkg/network/linux/network_manager.sh
-source ./pkg/network/internet_connection.sh
+source ./scripts/pkg/assets/colors.sh
+source ./scripts/pkg/network/internet_connection.sh
+
+source ./scripts/linux/network/network_manager.sh
 
 function software_linux() {
     echo "$(set_color "green")[✓]$(set_color "*") Using Linux: $OS"

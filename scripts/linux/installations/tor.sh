@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source ./pkg/assets/colors.sh
+source ./scripts/pkg/assets/colors.sh
 
 function tor_service_linux() {
     echo "$(set_color "purple")[•]$(set_color "*") Checking Tor status..."
