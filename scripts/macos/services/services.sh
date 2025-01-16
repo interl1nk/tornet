@@ -1,7 +1,7 @@
 #! /bin/bash
 
-source ./pkg/installations/macos/tor.sh
-source ./pkg/installations/macos/proxychains.sh
+source ./scripts/macos/installations/tor.sh
+source ./scripts/macos/installations/proxychains.sh
 
 function services_macos() {
     tor_service_macos
