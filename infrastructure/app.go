@@ -32,7 +32,7 @@ func NewGoApp(logger *logging.Logger, cfg config.Config) *GoApp {
 }
 
 func (a GoApp) Shutdown(ctx context.Context) error {
-	a.logger.Info("Shutting down application...")
+	a.logger.Info("Shutting down application.")
 
 	done := make(chan struct{})
 	go func() {
