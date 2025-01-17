@@ -3,8 +3,8 @@
 source ./scripts/pkg/assets/colors.sh
 
 function hot_spot_macos() {
-    echo "$(set_color "purple")[•]$(set_color "*") Configuring MacOS network..."
-    echo "$(set_color "yellow")[ALERT]$(set_color "*"): Enter your password below:"
+    echo "$(set_color "purple")[•]$(set_color "*") Configuring MacOS network"
+    echo "$(set_color "purple")[•]$(set_color "*") Enter your password below:"
 
     sudo networksetup -setsocksfirewallproxy "Wi-Fi" 127.0.0.1 9050
     sudo networksetup -setsocksfirewallproxystate "Wi-Fi" on
