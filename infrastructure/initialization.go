@@ -9,22 +9,17 @@ import (
 	"github.com/interl1nk/tornet/pkg/logging"
 )
 
-type AppMethods interface {
-	Start(ctx context.Context) error
-	Finish(ctx context.Context) error
-}
-
 type Application struct {
 	App    *GoApp
 	tor    services.AppService
 	client *http.Client
 }
 
-func New(logger *logging.Logger, cfg config.Config) AppMethods {
-	logger.Info("Initializing the application...")
+func New(logger *logging.Logger, cfg config.Config) *Application {
+	logger.Info("Initializing the application.")
 	goApp := NewGoApp(logger, cfg)
 
-	logger.Info("Initializing services...")
+	logger.Info("Initializing services.")
 	torSvc := services.NewAppService(logger, cfg, goApp.client)
 
 	return &Application{
@@ -35,11 +30,12 @@ func New(logger *logging.Logger, cfg config.Config) AppMethods {
 }
 
 func (a Application) Start(ctx context.Context) error {
+	a.App.logger.Info("Starting application.")
 	err := a.tor.GetBridges(ctx)
 	if err != nil {
-		a.App.logger.Errorf("Failed to get bridges: %v", err)
 		return err
 	}
+	a.App.logger.Info("Application started successfully.")
 	return nil
 }
 
