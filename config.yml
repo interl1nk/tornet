@@ -1,11 +1,11 @@
 logger:
   writer: stdout
-  level: trace
+  level: error
 tor:
   req_type: GET
   url: https://bridges.torproject.org/bridges?transport=obfs4
 output:
-  file_name: bridges.txt
+  file_name: bridge.txt
 client:
   timeout: 10
   max_idle_conns: 10

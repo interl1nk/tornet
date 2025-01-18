@@ -38,8 +38,6 @@ type clientConfig struct {
 
 func New() (Config, error) {
 	instance := Config{}
-	log.Println("Reading application's configuration")
-
 	useEnvConfig := os.Getenv("USE_ENV_CONFIG") == "true"
 
 	if !useEnvConfig {
