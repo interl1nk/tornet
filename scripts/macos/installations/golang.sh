@@ -16,6 +16,6 @@ function golang_macos() {
 
     local go_version
     go_version=$(go version 2>/dev/null | grep -oE 'go[0-9]+\.[0-9]+(\.[0-9]+)?' | sed 's/go//')
-    echo "$(set_color "purple")[•]$(set_color "*") Go version: $go_version"
+    echo "$(set_color "gray")[•]$(set_color "*") Go version: $go_version"
     echo "$(set_color "green")[✓]$(set_color "*") OK."
 }
