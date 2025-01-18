@@ -9,6 +9,6 @@ function handle_sigint() {
 
     restore_settings
 
-    echo "$(set_color "purple")Exiting...$(set_color "*")"
+    echo "$(set_color "purple")Exiting.$(set_color "*")"
     exit 0
 }

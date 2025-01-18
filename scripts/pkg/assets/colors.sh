@@ -2,8 +2,8 @@
 
 function set_color() {
 	case "$1" in
-		"black")
-			echo -e "\033[0;30m";;
+		"gray")
+			echo -e "\033[0;37m";;
         "red")
       echo -e "\033[0;31m";;
         "green")
