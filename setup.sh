@@ -9,12 +9,13 @@ source ./scripts/macos/software/software.sh
 source ./scripts/macos/services/services.sh
 source ./scripts/macos/settings/proxy_config.sh
 source ./scripts/macos/settings/hotspot_macos.sh
+source ./scripts/macos/settings/bridge.sh
 source ./scripts/macos/settings/sigint.sh
 
 trap handle_sigint SIGINT
 
 function setup() {
-    echo "Hello, you are using TorNet!"
+    echo "@Freeman"
 
     OS=$(uname)
 
@@ -26,6 +27,7 @@ function setup() {
         services_macos
         change_proxy_config
         hot_spot_macos
+        get_bridge
     else
         echo "$(set_color "purple")[ERROR]$(set_color "*"): Unsupported OS: $OS"
         return 1
