@@ -62,9 +62,13 @@ log() {
   local message="$2"
 
   # Logging the message.
-  local timestamp=$(date +'%Y-%m-%d %H:%M:%S')
-  local os=$(uname -s)
-  local ip=$(get_public_ip)
+  local timestamp
+  local os
+  local ip
+
+  timestamp=$(date +'%Y-%m-%d %H:%M:%S')
+  os=$(uname -s)
+  ip=$(get_public_ip)
 
   # Form the text for the terminal (with colors).
   if [[ "$ip" == "FAILED" ]]; then
@@ -94,8 +98,6 @@ log() {
 # Function to track IP changes
 track_ip_changes() {
   local previous_ip=""
-  # Start by checking the IP immediately
-  current_ip=$(get_public_ip)
 
   while true; do
     new_ip=$(get_public_ip)
