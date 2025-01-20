@@ -1,7 +1,5 @@
 #! /bin/bash
 
-source ./scripts/pkg/assets/colors.sh
-
 source ./scripts/linux/software/software.sh
 source ./scripts/linux/services/services.sh
 
@@ -11,6 +9,8 @@ source ./scripts/macos/settings/proxy_config.sh
 source ./scripts/macos/settings/hotspot_macos.sh
 source ./scripts/macos/settings/bridge.sh
 source ./scripts/macos/settings/sigint.sh
+
+source ./scripts/pkg/logging/freelog.sh
 
 trap handle_sigint SIGINT
 
@@ -29,7 +29,7 @@ function setup() {
         hot_spot_macos
         get_bridge
     else
-        echo "$(set_color "purple")[ERROR]$(set_color "*"): Unsupported OS: $OS"
+        log ERROR "Unsupported OS: $OS"
         return 1
     fi
 
