@@ -1,6 +1,6 @@
 #! /bin/bash
 
-function golang_macos() {
+function install_golang() {
     log INFO "Checking Golang version"
 
     if ! command -v go &>/dev/null; then

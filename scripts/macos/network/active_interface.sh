@@ -1,8 +1,6 @@
 #! /bin/bash
 
-source ./scripts/pkg/assets/colors.sh
-
-function get_active_interface_macos() {
+function get_active_interface() {
     log INFO "Detecting active network interface with internet access"
 
     default_interface=$(route -n get default | awk '/interface: / {print $2}')

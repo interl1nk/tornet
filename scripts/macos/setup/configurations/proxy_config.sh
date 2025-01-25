@@ -2,7 +2,7 @@
 
 PROXY_CONFIG_MACOS="/opt/homebrew/etc/proxychains.conf"
 
-function change_proxy_config() {
+function proxy_config() {
     log INFO "Configuring the proxy configuration"
 
     if ! grep -q 'socks5  127.0.0.1 9050' "$PROXY_CONFIG_MACOS"; then
@@ -18,4 +18,15 @@ function change_proxy_config() {
     fi
 
     log OK "Configured"
+}
+
+function cleanup_proxy_config() {
+    log INFO "Cleaning up proxy configuration"
+
+    sed -i '' '/socks5  127.0.0.1 9050/d' "$PROXY_CONFIG_MACOS"
+
+    sed -i '' 's/^dynamic_chain/# dynamic_chain/' "$PROXY_CONFIG_MACOS"
+    sed -i '' 's/^#\s*strict_chain/strict_chain/' "$PROXY_CONFIG_MACOS"
+
+    log OK "Proxy configuration cleaned up"
 }

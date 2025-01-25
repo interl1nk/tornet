@@ -1,6 +1,6 @@
 #! /bin/bash
 
-function proxychains_service_macos() {
+function install_proxychains() {
     log INFO "Checking proxychains-ng"
 
     if ! brew list --formula | grep -q "^proxychains-ng$"; then
